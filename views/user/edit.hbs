@@ -1,1 +1,32 @@
-<h1>hey there</h1>
+<h2>hey there, this is information about your profile.</h2>
+
+<p>{{theUser.firstName}}</p>
+<p>{{theUser.lastName}}</p>
+<p>{{theUser.email}}</p>
+
+{{#if theUser.bio}}
+<p>{{theUser.bio}}</p>
+
+{{/if}}
+
+<h2>Here what else you could add to your profile</h2>
+<form action="/profile/edit" method="POST" enctype="multipart/form-data">
+
+<label for="">Phone number</label>
+<input type="text" name="phoneNumber" id="">
+<br>
+
+
+<label for="">Bio</label>
+<textarea name="bio" id="" cols="20" rows="6"></textarea>
+
+<br>
+<br>
+<br>
+<label for="">Your avatar</label>
+<input type="file" name="the-picture" id="">
+<br>
+
+<button>Submit</button>
+
+</form>

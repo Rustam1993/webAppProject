@@ -9,6 +9,9 @@ const bcrypt    = require('bcryptjs');
 const passport  = require('passport');
 
 
+const uploader  = require('../config/cloud.js');
+
+
 // Get signUp
 
 router.get('/signup', (req,res,next) =>{
@@ -33,6 +36,7 @@ User.create({
   lastName:  req.body.lastName,
   email:     req.body.email,
   password:  theHash
+  
 })
 .then((theUser) =>{
   req.login(theUser, (err) =>{
@@ -100,12 +104,30 @@ res.render('user/profile')
 // User edit
 
 
-router.get('/edit' , (req,res,next) =>{
+router.get('/profile/edit' , (req,res,next) =>{
+res.render('user/edit',)
+})
 
-res.render('user/edit')
 
+router.post('/profile/edit',uploader.single('the-picture'), (req,res,next) =>{
+  console.log("========== ", req.body.phoneNumber)
+  console.log("---------- ", req.body.bio)
+  console.log("********** ", req.file.url)
+  User.update({
+    phoneNumber: req.body.phoneNumber,
+    bio:         req.body.bio,
+    avatar:      req.file.url
+
+  })
+  .then(()=>{
+    res.redirect('/profile')
+  })
+  .catch((err) =>{
+    next(err)
+  })
 
 })
+
 
 
 module.exports = router;

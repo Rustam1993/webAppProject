@@ -11,7 +11,7 @@ const userSchema = new Schema({
   phoneNumber:      String,
   propertiesOwned:  Array,
   propertiesRented: Array,
-  avatar:           String,
+  avatar:           {type: String, default: "http://alumni.crg.eu/sites/default/files/default_images/default-picture_0_0.png"},
   bio:              String,
   reviews:          Array,
 },
