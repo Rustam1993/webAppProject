@@ -1,13 +1,31 @@
 require('dotenv').config();
 
-const bodyParser   = require('body-parser');
-const cookieParser = require('cookie-parser');
-const express      = require('express');
-const favicon      = require('serve-favicon');
-const hbs          = require('hbs');
-const mongoose     = require('mongoose');
-const logger       = require('morgan');
-const path         = require('path');
+const bodyParser      = require('body-parser');
+const cookieParser    = require('cookie-parser');
+const express         = require('express');
+const favicon         = require('serve-favicon');
+const hbs             = require('hbs');
+const mongoose        = require('mongoose');
+const logger          = require('morgan');
+const path            = require('path');
+
+
+const session         = require('express-session');
+const mongoStore      = require('connect-mongo')(session);
+const bcrypt          = require('bcryptjs');
+const passport        = require('passport');
+const LocalStrategy   = require('passport-local').Strategy;
+const flash           = require('connect-flash');
+
+
+const User            = require('./models/User');
+
+
+
+require('./config/passport');
+
+
+
 
 
 mongoose
@@ -49,10 +67,30 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
+app.use(flash());
 
+
+app.use(session({
+  secret: "our-passport-local-strategy-app",
+  resave: true,
+  saveUninitialized: true
+}))
+
+app.use(passport.initialize());
+
+app.use(passport.session());
+
+app.use(function(req, res, next){
+  res.locals.theUser = req.user
+  next();
+})
 
 const index = require('./routes/index');
 app.use('/', index);
+
+
+const user = require('./routes/userRoutes');
+app.use('/', user);
 
 
 module.exports = app;
