@@ -4,12 +4,12 @@ const Schema     = mongoose.Schema;
 
 
 const userSchema = new Schema({
-  firstName: {type: String, required: true},
-  lastName:  {type: String, required: true},
-  email:     {type: String, required: true},
-  password:  {type: String, required: true},
+  firstName:        {type: String, required: true},
+  lastName:         {type: String, required: true},
+  email:            {type: String, required: true},
+  password:         {type: String, required: true},
   phoneNumber:      String,
-  propertiesOwned:  Array,
+  propertiesOwned:  {type: [Schema.Types.Mixed] , ref: 'Property'},
   propertiesRented: Array,
   avatar:           {type: String, default: "http://alumni.crg.eu/sites/default/files/default_images/default-picture_0_0.png"},
   bio:              String,

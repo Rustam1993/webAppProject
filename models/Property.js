@@ -4,18 +4,18 @@ const Schema     = mongoose.Schema;
 
 
 const propertySchema = new Schema({
-owner:          {type:Schema.Types.ObjectId, ref: 'User'},
+owner:          {type: Schema.Types.ObjectId, ref: 'User'},
 name:           String,
 address:        String,
 type:           String,
 description:    String,
-Amenties:       Array,
+amenties:       Array,
 rating:         Number,
 reviews:        Array,
 price:          Number,
 rentLength:     String,
 image:          String,
-avgNumOfGuests: String,
+avgNumOfGuests: Number,
 renters:        Array,
 available:      {type: Boolean, default:true}
 
