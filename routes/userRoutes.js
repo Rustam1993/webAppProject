@@ -15,17 +15,18 @@ const uploader  = require('../config/cloud.js');
 // Get signUp
 
 router.get('/signup', (req,res,next) =>{
-  res.render('user/signUP')
+  res.render('user/signUP', {message: req.flash('error')})
 })
 
 // POST singUP
 router.post('/signup', (req,res,next) =>{
 
-User.findOne({username : req.body.email})
+User.findOne({email : req.body.email})
 .then((theUser)=>{
 if(theUser!==null){
   req.flash('error', 'sorry that username is already taken')
   res.redirect('/signup')
+  return;
 }
 
 const salt    = bcrypt.genSaltSync(10);
@@ -36,7 +37,7 @@ User.create({
   lastName:  req.body.lastName,
   email:     req.body.email,
   password:  theHash
-  
+
 })
 .then((theUser) =>{
   req.login(theUser, (err) =>{
@@ -76,10 +77,9 @@ router.get('/login', (req,res,next)=>{
 
 router.post('/login' , passport.authenticate('local', {
   successRedirect:   '/profile',
-  failureRedirect:   '/signup',
-  failureFlash:      true,
+  failureRedirect:   '/signup', 
+  failureFlash:      'this user does not exist, please sign up',
   passReqToCallback: true
-
 
 }))
 
@@ -109,24 +109,55 @@ res.render('user/edit',)
 })
 
 
-router.post('/profile/edit',uploader.single('the-picture'), (req,res,next) =>{
-  console.log("========== ", req.body.phoneNumber)
-  console.log("---------- ", req.body.bio)
-  console.log("********** ", req.file.url)
-  User.update({
-    phoneNumber: req.body.phoneNumber,
-    bio:         req.body.bio,
-    avatar:      req.file.url
+router.post('/profile/edit', uploader.single('the-picture'), (req,res,next) =>{
 
-  })
+  let userR = req.user;
+  console.log(userR)
+  let updatedContent;
+  
+  if(req.file===undefined) {
+      updatedContent = 
+      {
+         phoneNumber: req.body.phoneNumber,
+         bio:         req.body.bio,
+         
+      }
+    }
+      else {
+        updatedContent = {
+
+          phoneNumber: req.body.phoneNumber,
+          bio:         req.body.bio,
+          avatar:      req.file.url
+        }
+      }
+
+
+  
+  userR.update(updatedContent)
   .then(()=>{
     res.redirect('/profile')
   })
   .catch((err) =>{
     next(err)
   })
-
+  
 })
+
+
+// Get req Check users properties
+
+router.get('/profile/list-my-properties', (req,res,next) =>{
+  User.findOne({email: req.user.email})
+  .then((findedUser) =>{
+    res.render('user/myProperties' , {findedUser: findedUser})
+  })
+  .catch((err) =>{
+    next(err)
+  })
+})
+
+
 
 
 
