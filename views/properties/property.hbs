@@ -1,0 +1,22 @@
+<h1>list of properties</h1>
+
+
+
+{{#each properties}}
+
+
+<div>
+<p>Property name: {{this.name}} </p>
+
+<p>Owned by {{this.owner.firstName}} {{this.owner.lastName}} </p>
+<p>Contact information  {{this.owner.phoneNumber}} || {{this.owner.email}}</p>
+
+<p>image: <img src="{{this.image}}" alt="" class = "profile-avatar"></p>
+<p>{{this.owner.email}}</p>
+
+
+
+{{/each}}
+
+</div>
+

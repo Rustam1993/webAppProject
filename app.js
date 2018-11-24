@@ -5,6 +5,12 @@ const cookieParser    = require('cookie-parser');
 const express         = require('express');
 const favicon         = require('serve-favicon');
 const hbs             = require('hbs');
+
+
+hbs.registerHelper('equal', require('handlebars-helper-equal'));
+
+
+
 const mongoose        = require('mongoose');
 const logger          = require('morgan');
 const path            = require('path');
@@ -91,6 +97,10 @@ app.use('/', index);
 
 const user = require('./routes/userRoutes');
 app.use('/', user);
+
+
+const property = require('./routes/propertyRoutes');
+app.use('/', property);
 
 
 module.exports = app;

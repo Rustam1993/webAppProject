@@ -1,0 +1,95 @@
+
+<h1>hi</h1>
+{{!-- {{#each findedUser.propertiesOwned}}
+<p>{{this.name}}</p>
+{{/each}} --}}
+
+
+{{#each editedProperty}}
+<form action="/profile/list-my-properties/edit/{{this._id}}" method="POST" enctype="multipart/form-data">
+
+<div class="add-new-property col-lg-6  col-sm-12">
+
+<label for="">Name</label>
+<input type="text" name="name" id="" value="{{this.name}}">
+
+<label for="">Address</label>
+<input type="text" name="address" id="" value="{{this.address}}">
+
+<label for="">Type</label>
+<input type="text" name="type" value="{{this.type}}">
+
+<label for="">description</label>
+<input type="text" name="description" value="{{this.description}}">
+
+<label for="">Amenties</label>
+<input type="text" name="amenties" value="{{this.amenties}}">
+
+<label for="">Rating</label>
+<input type="text" name="rating" value="{{this.rating}}">
+
+
+<label for="">price</label>
+<input type="text" name="price" value="{{this.price}}">
+
+<label for="">rent Length</label>
+<input type="text" name="rentLength" value="{{this.rentLength}}">
+
+
+<label for="">Image</label>
+<input type="file" name="image">
+
+<label for="">Average number of guests</label>
+<input type="text" name="avgNumOfGuests" value="avgNumOfGuests">
+
+<button>Submit</button>
+
+</div>
+</form>
+{{/each}}
+
+ 
+{{!-- {{#each findedUser.propertiesOwned}} --}}
+{{!-- <form action="/profile/edit/{{findedUser.propertiesOwned._id}}" method="POST"  enctype="multipart/form-data" >
+
+
+<div class="add-new-property col-lg-6  col-sm-12">
+
+
+<label for="">Name</label>
+<input type="text" name="name" id="">
+
+<label for="">Address</label>
+<input type="text" name="address" id="">
+
+<label for="">Type</label>
+<input type="text" name="type">
+
+<label for="">description</label>
+<input type="text" name="description">
+
+<label for="">Amenties</label>
+<input type="text" name="amenties">
+
+<label for="">Rating</label>
+<input type="text" name="rating">
+
+
+<label for="">price</label>
+<input type="text" name="price">
+
+<label for="">rent Length</label>
+<input type="text" name="rentLength">
+
+
+<label for="">Image</label>
+<input type="file" name="image">
+
+<label for="">Average number of guests</label>
+<input type="text" name="avgNumOfGuests">
+
+<button>Submit</button>
+
+
+</div>
+</form> --}}

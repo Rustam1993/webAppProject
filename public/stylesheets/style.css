@@ -8,4 +8,9 @@ a {
 .profile-avatar {
   width: 20vw; }
 
+.add-new-property {
+  display: flex;
+  flex-flow: column wrap;
+  float: right; }
+
 /*# sourceMappingURL=style.css.map */

@@ -5,24 +5,23 @@
 <h1>Hi</h1>
 <h2>{{theUser.firstName}}</h2>
 
+<h2>{{theUser.email}}</h2>
+<h2>{{theUser.phoneNumber}}</h2>
+
 <img src="{{theUser.avatar}}"  class="profile-avatar" alt="">
 
-{{#if theUser.bio}}
+
+
 <h2>{{theUser.bio}}</h2>
-
-{{/if}}
-
-
-
-
-
-
-
-
 
 
 <h2>If you would like to change/add info to your profile click on this link below</h2>
 <h2><a href="/profile/edit">edit my profile</a></h2>
+
+
+<h2>Check out your listed properties</h2>
+<a href="/profile/list-my-properties">Here</a>
+
 {{else}}
 <h1>You need to be logged in first to see that page <a href="/login">Log in</a> </h1>
 {{/if}}

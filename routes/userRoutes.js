@@ -8,6 +8,7 @@ const bcrypt    = require('bcryptjs');
 
 const passport  = require('passport');
 
+const Property  = require('../models/Property');
 
 const uploader  = require('../config/cloud.js');
 
@@ -148,14 +149,41 @@ router.post('/profile/edit', uploader.single('the-picture'), (req,res,next) =>{
 // Get req Check users properties
 
 router.get('/profile/list-my-properties', (req,res,next) =>{
-  User.findOne({email: req.user.email})
-  .then((findedUser) =>{
-    res.render('user/myProperties' , {findedUser: findedUser})
+  Property.find({owner: req.user}).populate('owner')
+  .then((findedProperty) =>{
+
+    console.log(findedProperty.owner)
+    res.render('user/myProperties' , {findedProperty: findedProperty})
   })
   .catch((err) =>{
     next(err)
   })
 })
+
+
+
+// get req for editing property
+
+
+router.get('/profile/list-my-properties/edit/:id', (req,res,next) =>{
+  Property.findById(req.params.id).populate('owner')
+  .then((editedProperty) =>{
+      res.render('user/editProperty', {editedProperty} )
+  })
+  .catch((err) =>{
+    next(err)
+  })
+ 
+
+
+  // User.findOne({propertiesOwned: })
+  // .then((findedUser) =>{
+
+
+  //   res.render('user/editProperty', {findedUser:findedUser})
+  // })
+})
+
 
 
 

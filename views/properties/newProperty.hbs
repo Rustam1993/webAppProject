@@ -1,0 +1,96 @@
+<h1>add new staff</h1>
+
+
+
+
+
+
+  
+  
+  
+  
+<form action="/add-new-property" method="POST"  enctype="multipart/form-data" >
+
+
+<div class="add-new-property col-lg-6  col-sm-12">
+
+
+<label for="">Name</label>
+<input type="text" name="name" id="">
+
+<label for="">Address</label>
+<input type="text" name="address" id="">
+
+<label for="">Type</label>
+<input type="text" name="type">
+
+<label for="">description</label>
+<input type="text" name="description">
+
+<label for="">Amenties</label>
+<input type="text" name="amenties">
+
+<label for="">Rating</label>
+<input type="text" name="rating">
+
+
+{{!-- Need to add reviews model soon --}}
+
+
+
+<label for="">price</label>
+<input type="text" name="price">
+
+<label for="">rent Length</label>
+<input type="text" name="rentLength">
+
+
+<label for="">Image</label>
+<input type="file" name="image">
+
+<label for="">Average number of guests</label>
+<input type="text" name="avgNumOfGuests">
+
+<button>Submit</button>
+
+
+{{!-- renters --}}
+</div>
+</form>
+
+
+
+
+
+{{!-- const propertySchema = new Schema({
+
+owner:          {type:Schema.Types.ObjectId, ref: 'User'},
+
+name:           String,
+
+address:        String,
+
+type:           String,
+
+description:    String,
+
+Amenties:       Array,
+
+rating:         Number,
+
+reviews:        Array,
+
+price:          Number,
+
+rentLength:     String,
+
+image:          String,
+
+avgNumOfGuests: Number,
+
+renters:        Array,
+
+available:      {type: Boolean, default:true}
+
+
+}) --}}

@@ -1,0 +1,39 @@
+<h1>hello</h1>
+
+
+
+<h2>Info about owner and property</h2>
+
+{{#each  findedProperty}}
+
+
+<p>{{this.owner.firstName}}</p>
+<p>{{this.owner.lastName}}</p>
+<p>{{this.owner.phoneNumber}}</p>
+<p>{{this.owner.email}}</p>
+
+<p>{{this.name}}</p>
+<p>{{this.price}}</p>
+<p>{{this.description}}</p>
+<img src="{{this.image}}" class="profile-avatar" alt="">
+<button><a href="/profile/list-my-properties/edit/{{this._id}}">Edit this property</a></button>
+
+{{/each}}
+
+
+
+{{!-- 
+{{#each findedUser.propertiesOwned}}
+<div>
+<p>{{this.name}}</p>
+<p>{{this.address}}</p>
+<p>{{this.type}}</p>
+<p>{{this.description}}</p>
+<p>{{this.amenties}}</p>
+
+
+<p>{{this.description}}</p>
+<img src="{{this.image}}" alt="" class="profile-avatar">
+<button><a href="/profile/list-my-properties/edit/{{this._id}}">Edit this property</a></button>
+</div>
+{{/each}} --}}

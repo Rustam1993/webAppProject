@@ -19,8 +19,10 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav d-flex  justify-content-around" id = "links">
         <a class="nav-item nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/properties">Check out properties</a>
         {{!-- <a class="nav-item nav-link" href="about.html">Floor Plans</a> --}}
         {{#if theUser}}
+          <a class="nav-item nav-link" href="/add-new-property">Add property</a>
           <a class="nav-item nav-link" href="/logout">Log Out</a>
           <a class="nav-item nav-link" href="/profile">My profile</a>
         {{else}}
