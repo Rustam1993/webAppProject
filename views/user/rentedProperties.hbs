@@ -1,0 +1,14 @@
+<h2>Hi {{findedUser.firstName}}</h2>
+
+<p>list of your rented properties</p>
+
+
+{{#each findedUser.propertiesRented}}
+
+
+<p>{{this.name}}</p>
+<p>{{this.price}}</p>
+<a href="/profile/list-my-rented-properties/{{this._id}}/add-review">Add a review about this property</a>
+<br>
+<br>
+{{/each}}

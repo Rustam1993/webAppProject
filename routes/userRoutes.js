@@ -106,7 +106,7 @@ res.render('user/profile')
 
 
 router.get('/profile/edit' , (req,res,next) =>{
-res.render('user/edit',)
+res.render('user/edit')
 })
 
 
@@ -144,47 +144,6 @@ router.post('/profile/edit', uploader.single('the-picture'), (req,res,next) =>{
   })
   
 })
-
-
-// Get req Check users properties
-
-router.get('/profile/list-my-properties', (req,res,next) =>{
-  Property.find({owner: req.user}).populate('owner')
-  .then((findedProperty) =>{
-
-    console.log(findedProperty.owner)
-    res.render('user/myProperties' , {findedProperty: findedProperty})
-  })
-  .catch((err) =>{
-    next(err)
-  })
-})
-
-
-
-// get req for editing property
-
-
-router.get('/profile/list-my-properties/edit/:id', (req,res,next) =>{
-  Property.findById(req.params.id).populate('owner')
-  .then((editedProperty) =>{
-      res.render('user/editProperty', {editedProperty} )
-  })
-  .catch((err) =>{
-    next(err)
-  })
- 
-
-
-  // User.findOne({propertiesOwned: })
-  // .then((findedUser) =>{
-
-
-  //   res.render('user/editProperty', {findedUser:findedUser})
-  // })
-})
-
-
 
 
 

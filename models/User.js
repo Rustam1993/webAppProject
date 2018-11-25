@@ -10,7 +10,7 @@ const userSchema = new Schema({
   password:         {type: String, required: true},
   phoneNumber:      String,
   propertiesOwned:  {type: [Schema.Types.Mixed] , ref: 'Property'},
-  propertiesRented: Array,
+  propertiesRented: {type: [] , ref: 'Property'},
   avatar:           {type: String, default: "http://alumni.crg.eu/sites/default/files/default_images/default-picture_0_0.png"},
   bio:              String,
   reviews:          Array,

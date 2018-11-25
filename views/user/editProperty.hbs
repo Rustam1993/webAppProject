@@ -1,95 +1,48 @@
 
 <h1>hi</h1>
-{{!-- {{#each findedUser.propertiesOwned}}
-<p>{{this.name}}</p>
-{{/each}} --}}
+
+<div>
+
+<form action="/profile/list-my-properties/edit/{{editedProperty1._id}}" method="POST" enctype="multipart/form-data">
 
 
-{{#each editedProperty}}
-<form action="/profile/list-my-properties/edit/{{this._id}}" method="POST" enctype="multipart/form-data">
-
-<div class="add-new-property col-lg-6  col-sm-12">
 
 <label for="">Name</label>
-<input type="text" name="name" id="" value="{{this.name}}">
+<input type="text" name="name" id="" value="{{editedProperty1.name}}">
 
 <label for="">Address</label>
-<input type="text" name="address" id="" value="{{this.address}}">
+<input type="text" name="address" id="" value="{{editedProperty1.address}}">
 
 <label for="">Type</label>
-<input type="text" name="type" value="{{this.type}}">
+<input type="text" name="type" value="{{editedProperty1.type}}">
 
 <label for="">description</label>
-<input type="text" name="description" value="{{this.description}}">
+<input type="text" name="description" value="{{editedProperty1.description}}">
 
 <label for="">Amenties</label>
-<input type="text" name="amenties" value="{{this.amenties}}">
+<input type="text" name="amenties" value="{{editedProperty1.amenties}}">
 
 <label for="">Rating</label>
-<input type="text" name="rating" value="{{this.rating}}">
+<input type="text" name="rating" value="{{editedProperty1.rating}}">
 
 
 <label for="">price</label>
-<input type="text" name="price" value="{{this.price}}">
+<input type="text" name="price" value="{{editedProperty1.price}}">
 
 <label for="">rent Length</label>
-<input type="text" name="rentLength" value="{{this.rentLength}}">
+<input type="text" name="rentLength" value="{{editedProperty1.rentLength}}">
 
 
 <label for="">Image</label>
 <input type="file" name="image">
 
 <label for="">Average number of guests</label>
-<input type="text" name="avgNumOfGuests" value="avgNumOfGuests">
+<input type="text" name="avgNumOfGuests" value="{{editedProperty1.avgNumOfGuests}}">
 
 <button>Submit</button>
 
-</div>
 </form>
-{{/each}}
-
- 
-{{!-- {{#each findedUser.propertiesOwned}} --}}
-{{!-- <form action="/profile/edit/{{findedUser.propertiesOwned._id}}" method="POST"  enctype="multipart/form-data" >
-
-
-<div class="add-new-property col-lg-6  col-sm-12">
-
-
-<label for="">Name</label>
-<input type="text" name="name" id="">
-
-<label for="">Address</label>
-<input type="text" name="address" id="">
-
-<label for="">Type</label>
-<input type="text" name="type">
-
-<label for="">description</label>
-<input type="text" name="description">
-
-<label for="">Amenties</label>
-<input type="text" name="amenties">
-
-<label for="">Rating</label>
-<input type="text" name="rating">
-
-
-<label for="">price</label>
-<input type="text" name="price">
-
-<label for="">rent Length</label>
-<input type="text" name="rentLength">
-
-
-<label for="">Image</label>
-<input type="file" name="image">
-
-<label for="">Average number of guests</label>
-<input type="text" name="avgNumOfGuests">
-
-<button>Submit</button>
-
 
 </div>
-</form> --}}
+
+

@@ -16,24 +16,15 @@
 <p>{{this.price}}</p>
 <p>{{this.description}}</p>
 <img src="{{this.image}}" class="profile-avatar" alt="">
-<button><a href="/profile/list-my-properties/edit/{{this._id}}">Edit this property</a></button>
 
+
+<form action="/profile/list-my-properties/edit/{{this._id}}" method="GET">
+<button>Edit this property</button>
+</form>
+
+
+<form action="/profile/list-my-properties/{{this._id}}/delete" method="POST">
+<button>Delete this property</button>
+</form>
 {{/each}}
 
-
-
-{{!-- 
-{{#each findedUser.propertiesOwned}}
-<div>
-<p>{{this.name}}</p>
-<p>{{this.address}}</p>
-<p>{{this.type}}</p>
-<p>{{this.description}}</p>
-<p>{{this.amenties}}</p>
-
-
-<p>{{this.description}}</p>
-<img src="{{this.image}}" alt="" class="profile-avatar">
-<button><a href="/profile/list-my-properties/edit/{{this._id}}">Edit this property</a></button>
-</div>
-{{/each}} --}}

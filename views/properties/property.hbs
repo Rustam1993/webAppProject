@@ -2,6 +2,8 @@
 
 
 
+
+
 {{#each properties}}
 
 
@@ -14,8 +16,11 @@
 <p>image: <img src="{{this.image}}" alt="" class = "profile-avatar"></p>
 <p>{{this.owner.email}}</p>
 
+{{#if this.show}}
 
+<a href="/property/rent/{{this._id}}">Rent this</a>
 
+{{/if}}
 {{/each}}
 
 </div>
