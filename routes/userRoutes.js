@@ -93,7 +93,7 @@ router.get('/logout' , (req,res,next) =>{
 
 
 
-// Get Progile
+// Get Profile
 router.get('/profile', (req,res,next)=>{
 
 res.render('user/profile')

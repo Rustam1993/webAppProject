@@ -1,9 +1,17 @@
+
+{{#if findedUser.propertiesRented}}
 <h2>Hi {{findedUser.firstName}}</h2>
 
 <p>list of your rented properties</p>
 
 
+
 {{#each findedUser.propertiesRented}}
+<p>
+  {{this.name }}
+</p>
+{{/each}}
+{{!-- {{#each findedUser.propertiesRented}}
 
 
 <p>{{this.name}}</p>
@@ -12,3 +20,25 @@
 <br>
 <br>
 {{/each}}
+
+
+
+
+
+
+{{!-- {{else}}
+
+
+<h4>Hey, {{findedUser.firstName}}, looks like you haven't rent anything yet</h4>
+
+
+
+{{/if}} --}} 
+
+{{else}}
+
+<h4>Hey, {{findedUser.firstName}}, looks like you haven't rent anything yet</h4>
+
+
+
+{{/if}}

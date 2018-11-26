@@ -16,26 +16,38 @@ const uploader  = require('../config/cloud.js');
 // List all properties
 
 router.get('/properties', (req,res,next) =>{
-if(!req.user){
-  req.flash('error', 'you have to sign up or log in to have access to  properties')
-  res.render('user/login' , {message: req.flash('error')})
-}
-let currentUser = req.user;
+  if(!req.user){
+    req.flash('error', 'you have to sign up or log in to have access to  properties')
+    res.render('user/login' , {message: req.flash('error')})
+  }
 
-Property.find().populate('owner')
-.then((theProperty) =>{
 
-  theProperty.forEach((eachProperty) =>{
-    if(!eachProperty.owner._id.equals(req.user._id)){
-      eachProperty.show = true;
-    }
+  Property.find().populate('owner')
+  .then((theProperty) =>{
+
+    theProperty.forEach((eachProperty) =>{
+      if(!eachProperty.owner._id.equals(req.user._id)){
+        eachProperty.show = true;
+      }
+    })
+    res.render('properties/property', {properties : theProperty})
   })
-  res.render('properties/property', { properties : theProperty, currentUser: currentUser })
-})
-.catch((err) =>{
-  next(err)
+  .catch((err) =>{
+    next(err)
+  })
 })
 
+// List one property
+
+router.get('/properties/:id', (req,res,next) =>{
+
+Property.findById(req.params.id)
+  .then((findedProperty) =>{
+    res.render('properties/singleProperty', {findedProperty:findedProperty})
+  })
+  .catch((err) =>{
+    next(err)
+  })
 })
 
 // Get list of all rented properties for user
@@ -53,74 +65,59 @@ router.get('/profile/list-my-rented-properties', (req,res,next) =>{
   })
 })
 
-// add a review to the property Get request
 
 
-router.get('/profile/list-my-rented-properties/:id/add-review', (req,res,next) =>{
+
+// Get route for rent this
+
+router.get('/properties/rent/:id', (req,res,next) =>{
+  if(!req.user){
+    req.flash('error', 'your have to be logged in to check rent this property')
+    res.render('user/login', {message: req.flash('error')})
+    return;
+  }
   Property.findById(req.params.id)
   .then((findedProperty) =>{
-    User.findOne({email: req.user.email})
-    .then((findedUser) =>{
-      
-      res.render('properties/leaveReview', {findedProperty:findedProperty, findedUser: findedUser})
+    res.render('properties/rent' , {findedProperty : findedProperty})
+  })
+  .catch((err) =>{
+    next(err)
+  })
+})
+
+// Post request for rent property
+
+
+router.post('/properties/rent/:id/submit', (req,res,next) =>{
+
+
+  User.findById(req.user._id)
+
+  .then((findedUser) =>{
+
+    Property.findByIdAndUpdate({_id: req.params.id}, {$push: {renters : findedUser}}).populate('renters')
+
+    .then((updatedProperty)=>{
+
+      User.findByIdAndUpdate(req.user._id, {$push: {propertiesRented : updatedProperty}}).populate('propertiesRented')
+
+      .then(() =>{
+          res.redirect('/profile')
+      })
+      .catch((err) =>{
+        next(err)
+      })
     })
-    .catch((err) =>{
+    .catch((err)=>{
       next(err)
     })
   })
   .catch((err) =>{
     next(err)
   })
+
 })
 
-// add a review POST
-
-
-
-router.post('/profile/list-my-rented-properties/:id/add-review', (req,res,next) =>{
-
-  Review.create({
-    author: req.user,
-    review: req.body.review,
-    rating: req.body.rating,
-    property: ??
-  }).populate('author').populate('property')
-
-  Property.findById(req.params.id)
-  .then((findedProperty) =>{
-    
-  })
-  .catch((err) =>{
-
-  })
-})
-
-
-// Get route for rent this
-
-router.get('/property/rent/:id', (req,res,next) =>{
-  if(!req.user){
-    req.flash('error', 'your have to be logged in to check rent this property')
-    res.render('user/login', {message: req.flash('error')})
-    return;
-  }
-  
- Property.findById(req.params.id)
- .then((findedProperty) =>{
-
-  User.findOneAndUpdate({email: req.user.email}, {$push: {propertiesRented: findedProperty }}).populate('propertiesRented')
-  .then((findedUser) =>{
-    res.render('properties/rent', {findedProperty: findedProperty, findedUser:findedUser })
-    
-  })
-  .catch((err) =>{
-    next(err)
-  })
- })
- .catch((err) =>{
-   next(err)
- })
-})
 
 // Get req for add new property
 router.get('/add-new-property', (req,res,next) =>{
@@ -150,7 +147,7 @@ router.post('/add-new-property', uploader.single('image'),  (req,res,next) =>{
   Property.create(newProperty)
   .then((createdProperty) =>{
 
-      User.findOneAndUpdate({email: req.user.email},{$push: {propertiesOwned: createdProperty}}).populate('propertiesOwned')
+      User.findOneAndUpdate({email: req.user.email},{$push: {propertiesOwned: createdProperty._id }}).populate('propertiesOwned')
           .then(()=>{
 
             res.redirect('/properties')
@@ -175,8 +172,8 @@ router.get('/profile/list-my-properties', (req,res,next) =>{
   Property.find({owner: req.user}).populate('owner')
   .then((findedProperty) =>{
 
-    console.log(findedProperty.owner)
-    res.render('user/myProperties' , {findedProperty: findedProperty})
+    // console.log(findedProperty.owner)
+    res.render('user/myProperties' , {allProperties: findedProperty})
   })
   .catch((err) =>{
     next(err)
@@ -192,7 +189,7 @@ router.get('/profile/list-my-properties', (req,res,next) =>{
 router.get('/profile/list-my-properties/edit/:id', (req,res,next) =>{
   Property.findById(req.params.id).populate('owner')
   .then((editedProperty) =>{
-      res.render('user/editProperty', {editedProperty1: editedProperty })
+      res.render('user/editProperty', {editedProperty: editedProperty })
   })
   .catch((err) =>{
     next(err)
@@ -231,10 +228,20 @@ router.post('/profile/list-my-properties/edit/:id',uploader.single('image'), (re
     avgNumOfGuests : req.body.avgNumOfGuests
   }
 
+  
+
   Property.findByIdAndUpdate(req.params.id, updatedPropertyContent)
   .then(() =>{
-    console.log("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="+updatedPropertyContent);
-    res.redirect('/profile/list-my-properties')
+    User.findOne({email:req.user.email})
+    .then((findedUser) =>{
+      console.log("-=-=-=-=-=-=-=-=-=-=-=-=-"+ typeof findedUser.propertiesOwned)
+      res.redirect('/profile/list-my-properties')
+    })
+    .catch((err) =>{
+      next(err)
+    })
+
+    
   })
   .catch((err) =>{
     next(err)
@@ -246,9 +253,17 @@ router.post('/profile/list-my-properties/edit/:id',uploader.single('image'), (re
 router.post('/profile/list-my-properties/:id/delete', (req,res, next) =>{
 
 Property.findByIdAndDelete(req.params.id)
-.then(() =>{
-  console.log("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"+req.params.id)
-  res.redirect('/profile')
+.then((deletedProperty) =>{
+
+  User.findOneAndUpdate({email: req.user.email}, {$pull : { propertiesOwned :   deletedProperty._id } } )
+  .then(() =>{
+    
+    res.redirect('/profile')
+  })
+  .catch((err) =>{
+    next(err)
+  })
+
 })
 .catch((err) =>{
   next(err)

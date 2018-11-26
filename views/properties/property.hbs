@@ -16,9 +16,11 @@
 <p>image: <img src="{{this.image}}" alt="" class = "profile-avatar"></p>
 <p>{{this.owner.email}}</p>
 
+<a href="/properties/{{this._id}}">See details and reviews</a>
+
 {{#if this.show}}
 
-<a href="/property/rent/{{this._id}}">Rent this</a>
+<a href="/properties/rent/{{this._id}}">Rent this</a>
 
 {{/if}}
 {{/each}}

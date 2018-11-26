@@ -11,12 +11,12 @@ type:           String,
 description:    String,
 amenties:       Array,
 rating:         Number,
-reviews:        {type: [Schema.Types.Mixed] , ref: 'Review'},
+reviews:        {type: [] , ref: 'Review'},
 price:          Number,
 rentLength:     String,
 image:          String,
 avgNumOfGuests: Number,
-renters:        Array,
+renters:        {type: [], ref: 'User'},
 available:      {type: Boolean, default:true}
 
 })

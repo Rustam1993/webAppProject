@@ -1,0 +1,8 @@
+<h4>Hello there</h4>
+
+<p>details about {{findedProperty.name}}, {{findedProperty.description}}</p>
+<img src="{{findedProperty.image}}" class="profile-avatar" alt="">
+{{#each findedProperty.reviews}}
+<p>{{this.review}}</p>
+
+{{/each}}

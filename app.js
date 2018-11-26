@@ -103,4 +103,9 @@ const property = require('./routes/propertyRoutes');
 app.use('/', property);
 
 
+const review  = require('./routes/reviewRoutes');
+
+app.use('/', review)
+
+
 module.exports = app;

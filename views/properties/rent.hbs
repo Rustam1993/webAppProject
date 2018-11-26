@@ -1,15 +1,23 @@
 <h1>hi there</h1>
 
+<h5>Here is some info</h5>
 
-<p>{{findedUser.firstName}}</p>
-
-
-<h2>Rented property info</h2>
+<p>{{findedProperty.Name}}</p>
 
 
 
-<p>{{findedProperty.name}}</p>
+
+
+
+<p>{{findedProperty.description}}</p>
+<img src="{{findedProperty.image}}" class ="profile-avatar" alt="">
 <p>{{findedProperty.price}}</p>
 
 
 
+<form action="/properties/rent/{{findedProperty._id}}/submit" method="POST">
+
+<p>if your are sure about renting that click this <button>Submit</button></p>
+
+
+</form>
