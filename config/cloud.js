@@ -12,12 +12,12 @@ cloudinary.config({
 var storage = cloudinaryStorage({
   cloudinary: cloudinary,
   folder: 'blah', // The name of the folder in cloudinary
-  allowedFormats: ['jpg', 'png', 'jpeg'],
+  allowedFormats: ['jpg', 'png'],
   filename: function (req, file, cb) {
-    cb(null, file.originalname); // The file on cloudinary would have the same name as the original file name
+    cb(null, file.originalname.split('.jpeg')[0]); // The file on cloudinary would have the same name as the original file name
   }
 });
 
 const uploadCloud = multer({ storage: storage });
 
-module.exports = uploadCloud;
+module.exports = uploadCloud;   

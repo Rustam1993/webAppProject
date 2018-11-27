@@ -1,0 +1,15 @@
+<h4>Hello, {{findedUser.firstName}}</h4>
+
+{{#each findedUser.reviews}}
+
+
+<p>Review:        {{this.review}}</p>
+<p>Your rating:   {{this.rating}}</p>
+<p>Property Name: {{this.property.name}}</p>
+<a href="/profile/all-reviews/{{this._id}}/edit">Edit this review</a>
+<br>
+<form action="/profile/all-reviews/{{this._id}}/delete" method="POST">
+<button>Delete this review</button>
+</form>
+<br>
+{{/each}}

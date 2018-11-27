@@ -1,8 +1,24 @@
+
+
+
 <h4>Hello there</h4>
+
+
+
+
 
 <p>details about {{findedProperty.name}}, {{findedProperty.description}}</p>
 <img src="{{findedProperty.image}}" class="profile-avatar" alt="">
+{{#if propertyRating}}
+  <h4> Avg Rating: {{propertyRating}}</h4>
+{{/if}}
 {{#each findedProperty.reviews}}
-<p>{{this.review}}</p>
-
+<p>Review: {{this.review}}</p>
+<p>Submitted By: {{this.author.firstName}}
+</p>
+<p>Rating: {{this.rating}}</p>
 {{/each}}
+
+
+
+

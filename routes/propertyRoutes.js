@@ -13,6 +13,8 @@ const uploader  = require('../config/cloud.js');
 
 
 
+
+
 // List all properties
 
 router.get('/properties', (req,res,next) =>{
@@ -41,10 +43,32 @@ router.get('/properties', (req,res,next) =>{
 
 router.get('/properties/:id', (req,res,next) =>{
 
-Property.findById(req.params.id)
+Property.findById(req.params.id).populate({path : 'reviews', populate: {path : 'author'}})
   .then((findedProperty) =>{
-    res.render('properties/singleProperty', {findedProperty:findedProperty})
-  })
+    // console.log("==================== ", findedProperty);
+    propRating = 0
+    findedProperty.reviews.forEach(oneReview => {
+      propRating += oneReview.rating
+    })
+    propRating = propRating / findedProperty.reviews.length
+
+    if(propRating === 0) {
+      propRating = false;
+    }
+
+    // Review.find({property: req.params.id)})
+
+
+
+
+
+    data = {
+      propertyRating: propRating,
+      findedProperty:findedProperty
+    }
+    console.log(" ------------------ ",data)
+      res.render('properties/singleProperty', data)
+    })
   .catch((err) =>{
     next(err)
   })
@@ -54,7 +78,7 @@ Property.findById(req.params.id)
 
 
 router.get('/profile/list-my-rented-properties', (req,res,next) =>{
-  User.findOne({email:req.user.email})
+  User.findOne({email:req.user.email}).populate('propertiesRented')
   .then((findedUser) =>{
 
     res.render('user/rentedProperties', {findedUser: findedUser})
@@ -95,13 +119,13 @@ router.post('/properties/rent/:id/submit', (req,res,next) =>{
 
   .then((findedUser) =>{
 
-    Property.findByIdAndUpdate({_id: req.params.id}, {$push: {renters : findedUser}}).populate('renters')
+    Property.findByIdAndUpdate(req.params.id, {$push: {renters : findedUser._id}}).populate('renters')
 
     .then((updatedProperty)=>{
-
-      User.findByIdAndUpdate(req.user._id, {$push: {propertiesRented : updatedProperty}}).populate('propertiesRented')
-
-      .then(() =>{
+      console.log(updatedProperty)
+      User.findByIdAndUpdate(req.user._id, {$push: {propertiesRented : updatedProperty._id}}).populate('propertiesRented')
+      .then((x) =>{
+        console.log(x)
           res.redirect('/profile')
       })
       .catch((err) =>{
@@ -255,7 +279,8 @@ router.post('/profile/list-my-properties/:id/delete', (req,res, next) =>{
 Property.findByIdAndDelete(req.params.id)
 .then((deletedProperty) =>{
 
-  User.findOneAndUpdate({email: req.user.email}, {$pull : { propertiesOwned :   deletedProperty._id } } )
+  User.findOneAndUpdate({email: req.user.email}, {$pull : { propertiesOwned :   deletedProperty._id }})
+
   .then(() =>{
     
     res.redirect('/profile')

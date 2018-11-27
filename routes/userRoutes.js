@@ -12,6 +12,8 @@ const Property  = require('../models/Property');
 
 const uploader  = require('../config/cloud.js');
 
+const ensure    = require('connect-ensure-login')
+
 
 // Get signUp
 
@@ -19,13 +21,13 @@ router.get('/signup', (req,res,next) =>{
   res.render('user/signUP', {message: req.flash('error')})
 })
 
-// POST singUP
+// POST singUPahsdhsahdhsahdhs
 router.post('/signup', (req,res,next) =>{
 
 User.findOne({email : req.body.email})
 .then((theUser)=>{
 if(theUser!==null){
-  req.flash('error', 'sorry that username is already taken')
+  req.flash('error', 'sorry that email is already taken')
   res.redirect('/signup')
   return;
 }
@@ -86,7 +88,7 @@ router.post('/login' , passport.authenticate('local', {
 
 // Get  log OUT
 
-router.get('/logout' , (req,res,next) =>{
+router.get('/logout', ensure.ensureLoggedIn('/login') , (req,res,next) =>{
   req.logout();
   res.redirect('/login')
 })
@@ -94,7 +96,7 @@ router.get('/logout' , (req,res,next) =>{
 
 
 // Get Profile
-router.get('/profile', (req,res,next)=>{
+router.get('/profile',ensure.ensureLoggedIn('/login'),  (req,res,next)=>{
 
 res.render('user/profile')
 

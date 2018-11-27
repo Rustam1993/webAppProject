@@ -9,18 +9,18 @@ name:           String,
 address:        String,
 type:           String,
 description:    String,
-amenties:       Array,
+amenties:       String,
 rating:         Number,
-reviews:        {type: [] , ref: 'Review'},
+reviews:        {type: Schema.Types.Mixed , ref: 'Review', default: []},
 price:          Number,
 rentLength:     String,
 image:          String,
 avgNumOfGuests: Number,
-renters:        {type: [], ref: 'User'},
+renters:        {type: Schema.Types.Mixed, ref: 'User' , default: []},
 available:      {type: Boolean, default:true}
 
 })
-
+// reviews: [Schema.Types.ObjectId]
 
 const Property  = mongoose.model('Property', propertySchema);
 

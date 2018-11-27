@@ -1,23 +1,38 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.topnav{
+  background-color: rgba(0, 115, 255, 0.612);
+  overflow: hidden;
 }
-
-a {
-  color: #00B7FF;
-}
-
-
-.profile-avatar{
-  width: 20vw;
-}
-
-
-.add-new-property{
-
-
-  display: flex;
-  flex-flow: column wrap;
+.topnav a{
   float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  
+}
 
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.topnav a:hover {
+  background-color: #555;
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
 }

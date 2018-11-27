@@ -10,6 +10,7 @@ const hbs             = require('hbs');
 hbs.registerHelper('equal', require('handlebars-helper-equal'));
 
 
+const ensure = require('connect-ensure-login')
 
 const mongoose        = require('mongoose');
 const logger          = require('morgan');
@@ -91,21 +92,28 @@ app.use(function(req, res, next){
   next();
 })
 
+
+
+
+
+
 const index = require('./routes/index');
 app.use('/', index);
 
 
+
+
 const user = require('./routes/userRoutes');
-app.use('/', user);
+app.use('/',  user);
 
 
 const property = require('./routes/propertyRoutes');
-app.use('/', property);
+app.use('/', ensure.ensureLoggedIn('/login'), property);
 
 
 const review  = require('./routes/reviewRoutes');
 
-app.use('/', review)
+app.use('/',  ensure.ensureLoggedIn('/login'),review)
 
 
 module.exports = app;

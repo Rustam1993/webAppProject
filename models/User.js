@@ -10,10 +10,10 @@ const userSchema = new Schema({
   password:         {type: String, required: true},
   phoneNumber:      String,
   propertiesOwned:  {type: [] , ref: 'Property'},
-  propertiesRented: {type: [] , ref: 'Property'},
+  propertiesRented: {type: Schema.Types.Mixed , ref: 'Property', default: []},
   avatar:           {type: String, default: "http://alumni.crg.eu/sites/default/files/default_images/default-picture_0_0.png"},
   bio:              String,
-  reviews:          Array,
+  reviews:          {type: Schema.Types.Mixed, ref: 'Review', default: []},
 },
 {
   timestamps: true

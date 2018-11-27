@@ -10,30 +10,22 @@
 <p>
   {{this.name }}
 </p>
-{{/each}}
-{{!-- {{#each findedUser.propertiesRented}}
+<p>
+  {{this.price}}
+  </p>
+<p>
+  {{this.description}}
+  </p>
 
+<img src="{{this.image}}" class="profile-avatar" alt="">  <br> <br> <br>
 
-<p>{{this.name}}</p>
-<p>{{this.price}}</p>
-<a href="/profile/list-my-rented-properties/{{this._id}}/add-review">Add a review about this property</a>
+<a href="/profile/list-my-rented-properties/{{this._id}}/add-review">Add review</a>
+
 <br>
-<br>
+<br>  
+
 {{/each}}
 
-
-
-
-
-
-{{!-- {{else}}
-
-
-<h4>Hey, {{findedUser.firstName}}, looks like you haven't rent anything yet</h4>
-
-
-
-{{/if}} --}} 
 
 {{else}}
 
