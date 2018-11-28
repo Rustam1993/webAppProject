@@ -1,29 +1,35 @@
+
 <h1>list of properties</h1>
+<div id="main-dev-for-list">
+
 
 
 
 
 
 {{#each properties}}
+<div class="each-property">
 
 
-<div>
-<p>Property name: {{this.name}} </p>
+<p>{{this.name}} </p>
 
 <p>Owned by {{this.owner.firstName}} {{this.owner.lastName}} </p>
 <p>Contact information  {{this.owner.phoneNumber}} || {{this.owner.email}}</p>
 
-<p>image: <img src="{{this.image}}" alt="" class = "profile-avatar"></p>
-<p>{{this.owner.email}}</p>
+<img src="{{this.image}}" alt="" class = "profile-avatar">
+
 
 <a href="/properties/{{this._id}}">See details and reviews</a>
 
 {{#if this.show}}
 
 <a href="/properties/rent/{{this._id}}">Rent this</a>
-
 {{/if}}
+</div>
 {{/each}}
 
-</div>
 
+
+
+
+</div>

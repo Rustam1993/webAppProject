@@ -1,7 +1,9 @@
+
+
 <h1>hello</h1>
 
 
-
+{{#if allProperties}}
 <h2>Info about  your properties </h2>
 
 
@@ -26,3 +28,6 @@
 </form>
 {{/each}}
 
+{{else}}
+<h1>there are no preperties, sorry</h1>
+{{/if}}

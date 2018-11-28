@@ -8,7 +8,7 @@ body{
 }
 // LAYOUT
 .topnav{
-  background-color:  #0071DC;                 // rgba(0,113,220, 0.5);
+  background-color: rgba(0,113,220, 0.6);
   overflow: hidden;
   position: fixed;
   top: 0;
@@ -40,7 +40,6 @@ body{
 .topnav a:hover {
   background-color:#001d40;
   color: #7bdaff;
-  
   height: 100%;
   transition: color 0.5s, background-color 0.5s;
 }
@@ -135,7 +134,7 @@ body{
   height: 60vh;
   margin: auto;
   flex-flow: column wrap;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   text-align: center;
@@ -244,6 +243,13 @@ margin: 0.5vw auto 0.5vw auto ;
 font-size: 2vw;
 
 }
+.links a:hover{
+
+  background-color: #011e3f;
+  color:#80bfff;
+  transition: color 0.5s, background-color 0.5s;
+
+}
 .bio{
   display: flex;
   flex-wrap: wrap;
@@ -256,6 +262,124 @@ font-size: 2vw;
   background-repeat: no-repeat; 
 
 }
+#edit-page{
+  background-image: url('../images/edit-profile-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;  
+}
+.edit-profile-page{
+  color: white;
+  margin:auto;
+  width: 70vw;
+  padding-top: 5vh;
+  background-color: rgba(1, 1, 1, 0.7)
+}
+.edit-profile-page h2{
+  text-align: center;
+}
+
+.inputs{
+  display: flex;
+  flex-flow: column wrap;
+  width: 50%;
+  align-items: center;
+  padding-left: 3vw;
+}
+
+.inputs input, textarea{
+  border: 1px solid white;
+  width: 100%;
+  background: transparent;
+  color:white;
+  padding-left: 10px; 
+  border-radius: 0.15vw;
+  margin:0.8vw;
+}
+
+.inputs input::placeholder, textarea::placeholder{
+  color:white;
+}
+.inputs button{
+  
+  padding: 0.5vw;
+  color: white;
+  background-color: #0070ee;
+  border-radius: 0.5vw;
+  border: none;
+  font-size: 1.5vw;
+  margin-bottom: 1vw;
+}
+
+
+#add-new-property{
+
+  background-image: url('../images/apt4_1536168361.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;  
+
+
+}
+#add-new-property form{
+  display: flex;
+  flex-flow: column wrap;
+  margin: auto;
+  background-color: rgba(1, 1, 1, 0.82);
+  width: 40vw;
+  align-items: center;
+}
+#add-new-property input{
+
+  
+    border: 1px solid white;
+    width: 96%;
+    background: transparent;
+    color:white;
+    padding-left: 10px; 
+    border-radius: 0.15vw;
+    margin:0.8vw;
+
+}
+#add-new-property input::placeholder{
+  color:white;
+}
+
+#add-new-property button{
+  
+  padding: 0.5vw;
+  color: white;
+  background-color: #0070ee;
+  border-radius: 0.5vw;
+  border: none;
+  font-size: 1.5vw;
+  margin-bottom: 1vw;
+  width: 10vw;
+}
+
+#main-dev-for-list{
+  padding-top: 8vh; 
+  display: flex;
+  flex-flow: row wrap; 
+}
+
+.each-property{
+display: flex;
+flex-flow: column wrap;
+margin: 2vw;
+width: 30%;
+border: 1px solid black;
+}
+
+.each-property img{
+
+  height: 25vh;
+}
+
 
 // 600 px and less design
 @media screen and (max-width: 600px) {

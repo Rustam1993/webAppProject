@@ -1,92 +1,48 @@
-<h1>add new staff</h1>
 
+<div id="add-new-property">
 
-
-
-
-
-  
-  
-  
-  
 <form action="/add-new-property" method="POST"  enctype="multipart/form-data" >
 
 
-<div class="add-new-property col-lg-6  col-sm-12">
-
-
-<label for="">Name</label>
-<input type="text" name="name" id="">
-
-<label for="">Address</label>
-<input type="text" name="address" id="">
-
-<label for="">Type</label>
-<input type="text" name="type">
-
-<label for="">description</label>
-<input type="text" name="description">
-
-<label for="">Amenties</label>
-<input type="text" name="amenties">
-
-{{!-- Need to add reviews model soon --}}
 
 
 
-<label for="">price</label>
-<input type="text" name="price">
 
-<label for="">rent Length</label>
-<input type="text" name="rentLength">
+<input type="text" name="name" id="" placeholder="Name">
 
-<label for="">Average number of guests</label>
-<input type="text" name="avgNumOfGuests">
 
-<label for="">Image</label>
-<input type="file" name="image">
+<input type="text" name="address" id="" placeholder="Address">
+
+
+<input type="text" name="type" placeholder="Type">
+
+
+<input type="text" name="description" placeholder="Description">
+
+
+<input type="text" name="amenties" placeholder="Amenties">
+
+
+<input type="number" name="price" placeholder="Price">
+
+
+<input type="text" name="rentLength" placeholder="RentLength">
+
+
+<input type="text" name="avgNumOfGuests" placeholder="Average Number of Guests">
+
+
+<input type="file" name="image" placeholder="Image">
 
 
 <button>Submit</button>
 
 
-{{!-- renters --}}
-</div>
+
 </form>
 
+</div>
 
 
 
 
-{{!-- const propertySchema = new Schema({
-
-owner:          {type:Schema.Types.ObjectId, ref: 'User'},
-
-name:           String,
-
-address:        String,
-
-type:           String,
-
-description:    String,
-
-Amenties:       Array,
-
-rating:         Number,
-
-reviews:        Array,
-
-price:          Number,
-
-rentLength:     String,
-
-image:          String,
-
-avgNumOfGuests: Number,
-
-renters:        Array,
-
-available:      {type: Boolean, default:true}
-
-
-}) --}}

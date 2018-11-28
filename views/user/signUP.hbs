@@ -4,6 +4,9 @@
 <div class="signup-form">
 
 <h1>SIGN UP NOW</h1>
+{{#if message}}
+<h1>{{message}}</h1>
+{{/if}}
 <form action="" method="POST" autocomplete="none">
 <div class="data-for-signup">
 {{!-- <label for="">First name</label> --}}
@@ -37,6 +40,3 @@
 
 
 
-{{#if message}}
-<h2>{{message}}</h2>
-{{/if}}
