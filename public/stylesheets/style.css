@@ -1,37 +1,154 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Gotham SSm A", "Gotham SSm B", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0; }
 
 .topnav {
-  background-color: rgba(0, 115, 255, 0.612);
-  overflow: hidden; }
+  background-color: #0071DC;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; }
 
 .topnav a {
   float: right;
-  display: block;
-  color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px; }
-
-.active {
-  background-color: #4CAF50;
-  color: white; }
+  font-size: 1.5vw;
+  transition: color 0.5s, background-color 0.5s;
+  height: 100%; }
 
 .topnav .icon {
   display: none; }
 
 .topnav a:hover {
-  background-color: #555;
+  background-color: #001d40;
+  color: #7bdaff;
+  height: 100%;
+  transition: color 0.5s, background-color 0.5s; }
+
+.padding-top {
+  padding-top: 51.83px; }
+
+#page-section {
+  background-image: url("../images/Gale-South-Beach-rooftop-bar-miami.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh; }
+
+.welcome-section {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  min-height: 100vh; }
+
+.main-header {
+  color: white;
+  background-color: rgba(18, 39, 158, 0.568);
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%;
+  text-align: center; }
+
+.main-header h1, h4 {
+  padding: 1vw; }
+
+.main-header h1 {
+  font-size: 3vw; }
+
+.main-header h4 {
+  font-size: 2.3vw; }
+
+.main-header a {
+  font-size: 1.2vw;
+  display: block;
+  margin-bottom: 1vw;
+  width: 10vw;
+  border: none;
+  background-color: #0b6bb7;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  letter-spacing: 0.25vw;
+  transition: color 0.5s, background-color 0.5s; }
+
+.main-header a:hover {
+  background-color: #001d40;
+  transition: color 0.5s, background-color 0.5s;
+  color: #7bdaff; }
+
+#signup-page {
+  background-image: url("../images/new-york.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 93vh;
+  display: flex;
+  justify-content: center; }
+
+.signup-form {
+  width: 50vw;
+  height: 60vh;
+  margin: auto;
+  display: flex;
+  flex-flow: column wrap;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: white; }
+
+.data-for-signup {
+  border: 1px solid white;
+  margin: 1.5vw;
+  width: 28vw;
+  display: flex;
+  justify-content: space-around; }
+
+.data-for-signup input {
+  border: none;
+  width: 100%;
+  background: transparent;
+  color: white;
+  padding-left: 10px; }
+
+.data-for-signup ::placeholder {
   color: white; }
 
 @media screen and (max-width: 600px) {
-  .topnav a {
+  .topnav a:not(:last-child) {
     display: none; }
   .topnav a.icon {
-    float: right;
-    display: block; } }
+    float: left;
+    display: block; }
+  .topnav {
+    height: 5vh; }
+  .main-header h1 {
+    font-size: 5vw; }
+  .main-header h4 {
+    font-size: 4.5vw; }
+  .main-header a {
+    font-size: 6.2vw;
+    width: 35vw; }
+  .padding-top {
+    padding-top: 0; }
+  .signup-form {
+    height: 28vh; }
+  .signup-form h1 {
+    font-size: 1.5rem; }
+  #signup-page {
+    min-height: 100vh; } }
 
 /*# sourceMappingURL=style.css.map */
