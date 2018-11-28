@@ -1,34 +1,38 @@
 
 
-
 {{#if theUser}}
-<h1>Hi</h1>
-<h2>{{theUser.firstName}}</h2>
 
-<h2>{{theUser.email}}</h2>
-<h2>{{theUser.phoneNumber}}</h2>
-
-<img src="{{theUser.avatar}}"  class="profile-avatar" alt="">
+<section class="profile-page">
 
 
+  <div class="profile-info">
+    <div class = "contact-info-in-profile">
+      <div>
+       <h2>{{theUser.firstName}} {{theUser.lastName}}</h2>
+       <img src="{{theUser.avatar}}"  class="profile-avatar" alt="">
+      </div>
+      <div>
+       <h2>{{theUser.email}}</h2>
+       <h2>{{theUser.phoneNumber}}</h2>
+      </div>
 
-<p>{{theUser.bio}}</p>
+    </div>
+    <div class="lower-profile-section">
+    <div class="links">
+      <a href="/profile/edit">edit profile</a>
+      <a href="/profile/list-my-properties">My listed properties</a>
+      <a href="/profile/all-reviews">My reviews</a>
+      <a href="/profile/list-my-rented-properties">My rented properties</a>
+    </div>
+   <div class="bio">
+    {{theUser.bio}}
+   </div>
 
+    
 
-<p>If you would like to change/add info to your profile click on this link below</p>
-<p><a href="/profile/edit">edit my profile</a></p>
-
-
-<p>Check out your listed properties <a href="/profile/list-my-properties">Here</a></p>
-
-
-
-<p>Check your your rented properties <a href="/profile/list-my-rented-properties">Here</a></p>
-
-<br>
-<a href="/profile/all-reviews">Check all your reviews</a>
-
-
-{{else}}
-<h1>You need to be logged in first to see that page <a href="/login">Log in</a> </h1>
-{{/if}}
+    {{else}}
+    <h1>You need to be logged in first to see that page <a href="/login">Log in</a> </h1>
+    {{/if}}
+    </div>
+  </div>
+</section>

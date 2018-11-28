@@ -47,7 +47,7 @@ body{
 
 
 .padding-top{
-  padding-top: 51.83px;;
+  // padding-top: 51.83px;
 }
 
 
@@ -57,6 +57,7 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
+
 }
 
 
@@ -78,6 +79,8 @@ body{
   margin-left: auto;
   width: 70%; 
   text-align: center;
+  border-radius: 0.2vw;
+
 }
 
 .main-header h1,h4{
@@ -92,10 +95,10 @@ body{
   font-size: 2.3vw;
 }
 .main-header a{
-  font-size: 1.2vw;
+  font-size: 2.2vw;
   display: block;
   margin-bottom: 1vw;
-  width: 10vw;;
+  width: 13vw;
   border: none;
   background-color: #0b6bb7;
   color: white;
@@ -104,7 +107,8 @@ body{
   text-decoration: none;
   letter-spacing: 0.25vw;
   transition: color 0.5s, background-color 0.5s;
-  
+  border-radius: 0.2vw;
+
   
 }
 .main-header a:hover{
@@ -115,13 +119,14 @@ body{
 }
 // SignUp page
 
-#signup-page{
+.signup-or-login-page{
   background-image: url('../images/new-york.jpeg');
   background-size: cover;
   background-repeat: no-repeat; 
-  min-height: 93vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 
@@ -129,7 +134,6 @@ body{
   width: 50vw;
   height: 60vh;
   margin: auto;
-  display: flex;
   flex-flow: column wrap;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -137,6 +141,8 @@ body{
   text-align: center;
   align-items: center;
   color:white;  
+  border-radius: 0.2vw;
+
 }
 
 .data-for-signup{
@@ -153,6 +159,8 @@ body{
   background: transparent;
   color:white;
   padding-left: 10px; 
+  border-radius: 0.15vw;
+
 }
 
 
@@ -161,7 +169,93 @@ body{
   color:white;
 }
 
+.sign-up-button{
+  width: 11rem;
+  border: none;
+  border-radius: 0.2vw;
 
+  background-color: rgba(0,110,223,0.99);
+  color: white;
+  font-size: 2vw;
+}
+
+
+.profile-page{
+  min-height: 100vh;
+  background-image: url('../images/6791504-free-city-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 7vh;
+}
+
+.profile-info{
+  background-color: rgba(255, 255, 255, 0.5);
+  // margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 70vw;
+  color:white;
+}
+.profile-info img{
+  height: 20vh;
+  border-radius: 6vw; 
+  
+}
+
+.contact-info-in-profile{
+  width: 70vw;
+  max-height: 40vh;
+  background-color: rgba(98, 140, 230, 0.7);
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.contact-info-in-profile div{
+  padding: 3vw;
+  max-height: 40vh;
+}
+.lower-profile-section{
+  display: flex;
+  justify-content: space-between;
+  // flex-flow: row wrap; 
+}
+.links{
+min-width: 30vw;
+background-color: rgba(34, 35, 70,0.5);
+height: 100%;
+text-align: center;
+display: flex;
+flex-flow: column wrap;
+
+}
+
+.links a{
+display: block;
+padding: 0.5vw;
+text-decoration: none;
+color: white;
+background-color: #0070ee;
+border-radius: 0.5vw;
+margin: 0.5vw auto 0.5vw auto ;
+font-size: 2vw;
+
+}
+.bio{
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  width: 100%;
+  white-space: pre-wrap;
+  overflow: scroll;
+  background-image: url("../images/1.png");
+  background-size: cover;
+  background-repeat: no-repeat; 
+
+}
 
 // 600 px and less design
 @media screen and (max-width: 600px) {
@@ -193,13 +287,38 @@ body{
   height: 28vh;
 }
 .signup-form h1{
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 #signup-page{
   min-height: 100vh;
 }
+.sign-up-button{
+  width: 6.7rem;
+  font-size: 4vw;
+}
 
 }
 
 
+@media screen and (min-width: 600px) and (max-width: 812px){
+.padding-top{
+  padding-top: 0;
+}
+.signup-form h1{
+  font-size: 2vw;
+}
+.signup-form form{
+  width: 29vw;
+}
 
+
+
+
+
+
+
+
+
+
+
+}

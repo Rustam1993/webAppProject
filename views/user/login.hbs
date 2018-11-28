@@ -1,21 +1,36 @@
-<h2>Please, use your email and password to login</h2>
+
+<div class="signup-or-login-page">
 
 
 
-<form action="/login" method="POST">
-
-<label for="">Your email address</label>
-<input type="email" name="email" id="">
 
 
-<label for="">Your password</label>
-<input type="text" name="password" id="">
 
 
-<button>Sign In</button>
+
+
+<div class="signup-form">
+<h1>Please, use your email and password to login</h1>
+<form action="/login" method="POST" autocomplete="none">
+
+<div class="data-for-signup">
+<input type="email" name="email" required placeholder="Your email" autocomplete="new-password" >
+</div>
+
+<div class="data-for-signup">
+<input type="password" name="password" required placeholder="Your password" autocomplete="new-password">
+</div>
+
+<button class="sign-up-button">Log In</button>
+
+
 </form>
+</div>
+
 
 
 {{#if message}}
 <h3>{{message}}</h3>
 {{/if}}
+
+</div>
