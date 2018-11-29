@@ -1,12 +1,11 @@
 
+<div class="main-dev-for-list">
+
 {{#if findedUser.propertiesRented}}
-<h2>Hi {{findedUser.firstName}}</h2>
-
-<p>list of your rented properties</p>
-
 
 
 {{#each findedUser.propertiesRented}}
+<div class="each-property">
 <p>
   {{this.name }}
 </p>
@@ -23,14 +22,11 @@
 
 <br>
 <br>  
-
+</div>
 {{/each}}
 
-
 {{else}}
-
 <h4>Hey, {{findedUser.firstName}}, looks like you haven't rent anything yet</h4>
-
-
-
 {{/if}}
+
+</div>

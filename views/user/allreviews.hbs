@@ -1,6 +1,6 @@
-<h4>Hello, {{findedUser.firstName}}</h4>
-
+<div class="single-review-view">
 {{#each findedUser.reviews}}
+<div class="each-review">
 
 
 <p>Review:        {{this.review}}</p>
@@ -12,4 +12,8 @@
 <button>Delete this review</button>
 </form>
 <br>
+</div>
 {{/each}}
+
+
+</div>

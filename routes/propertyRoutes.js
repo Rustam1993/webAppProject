@@ -46,13 +46,13 @@ router.get('/properties/:id', (req,res,next) =>{
 Property.findById(req.params.id).populate({path : 'reviews', populate: {path : 'author'}})
   .then((findedProperty) =>{
     // console.log("==================== ", findedProperty);
-    propRating = 0
+    propRating = 0;
     findedProperty.reviews.forEach(oneReview => {
       propRating += oneReview.rating
     })
-    propRating = propRating / findedProperty.reviews.length
+    propRating = (propRating / findedProperty.reviews.length).toFixed(2)
 
-    if(propRating === 0) {
+    if(isNaN(propRating)) {
       propRating = false;
     }
 

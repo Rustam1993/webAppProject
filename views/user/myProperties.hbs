@@ -1,19 +1,18 @@
 
 
-<h1>hello</h1>
-
+<div class="main-dev-for-list">
 
 {{#if allProperties}}
-<h2>Info about  your properties </h2>
+
 
 
 {{#each  allProperties}}
-
+<div class="each-property">
 
 
 
 <p>{{this.name}}</p>
-<p>{{this.price}}</p>
+<p>${{this.price}}</p>
 <p>{{this.description}}</p>
 <img src="{{this.image}}" class="profile-avatar" alt="">
 
@@ -26,8 +25,11 @@
 <form action="/profile/list-my-properties/{{this._id}}/delete" method="POST">
 <button>Delete this property</button>
 </form>
+</div>
 {{/each}}
 
 {{else}}
 <h1>there are no preperties, sorry</h1>
 {{/if}}
+
+</div>

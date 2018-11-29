@@ -4,7 +4,7 @@ body {
   padding: 0; }
 
 .topnav {
-  background-color: rgba(0, 113, 220, 0.6);
+  background-color: #0071dc;
   overflow: hidden;
   position: fixed;
   top: 0;
@@ -252,7 +252,7 @@ body {
   font-size: 1.5vw;
   margin-bottom: 1vw; }
 
-#add-new-property {
+.add-new-property {
   background-image: url("../images/apt4_1536168361.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -260,7 +260,7 @@ body {
   display: flex;
   justify-content: center; }
 
-#add-new-property form {
+.add-new-property form {
   display: flex;
   flex-flow: column wrap;
   margin: auto;
@@ -268,7 +268,7 @@ body {
   width: 40vw;
   align-items: center; }
 
-#add-new-property input {
+.add-new-property input {
   border: 1px solid white;
   width: 96%;
   background: transparent;
@@ -277,10 +277,10 @@ body {
   border-radius: 0.15vw;
   margin: 0.8vw; }
 
-#add-new-property input::placeholder {
+.add-new-property input::placeholder {
   color: white; }
 
-#add-new-property button {
+.add-new-property button {
   padding: 0.5vw;
   color: white;
   background-color: #0070ee;
@@ -290,20 +290,100 @@ body {
   margin-bottom: 1vw;
   width: 10vw; }
 
-#main-dev-for-list {
+.main-dev-for-list {
   padding-top: 8vh;
   display: flex;
-  flex-flow: row wrap; }
+  flex-flow: row wrap;
+  justify-content: space-around; }
 
 .each-property {
   display: flex;
   flex-flow: column wrap;
-  margin: 2vw;
+  margin: 0.4vw 0.5vw 0.2vw 0.5vw;
   width: 30%;
-  border: 1px solid black; }
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  background-color: transparent;
+  border-radius: 3px; }
+
+.each-property p {
+  margin-bottom: 0; }
+
+.each-property:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  background-color: rgba(5, 89, 154, 0.619); }
 
 .each-property img {
-  height: 25vh; }
+  height: 27vh;
+  width: 24vw;
+  border-radius: 4px; }
+
+.each-property button {
+  margin: 0.7vw;
+  border: none;
+  background-color: bisque;
+  border-radius: 5px; }
+
+.cell-or-email {
+  font-size: 2vw; }
+
+.single-property-view {
+  margin-top: 20vh;
+  height: 45vh; }
+
+.image-for-singles {
+  margin-left: 2vw; }
+
+.image-for-singles, .image-for-singles img {
+  float: left;
+  height: 40vh;
+  width: 30vw; }
+
+.info-for-single-view-property {
+  float: left;
+  margin-left: 2vw;
+  font-size: 2vw;
+  display: flex;
+  flex-flow: column wrap;
+  /* overflow: scroll; */
+  width: 70vh; }
+
+#main-div-for-reviews {
+  display: flex;
+  flex-flow: row wrap; }
+
+.each-review {
+  min-width: 30%;
+  border: 0.1vw solid #e5e5e5;
+  padding: 2vw;
+  margin: 1vw; }
+
+.single-review-view {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 15vh 1vh 1vh 1vh; }
+
+.add-some-padding {
+  padding-top: 10vh; }
+
+.leave-a-review {
+  margin-left: 2vw;
+  padding-top: 12vh; }
+
+.leave-a-review textarea {
+  color: black;
+  border: 1px solid gray; }
+
+.leave-a-review form {
+  display: flex;
+  flex-flow: column wrap; }
+
+.leave-a-review form > * {
+  width: 50vw;
+  margin: 1vw 0; }
 
 @media screen and (max-width: 600px) {
   .topnav a:not(:last-child) {
@@ -330,7 +410,14 @@ body {
     min-height: 100vh; }
   .sign-up-button {
     width: 6.7rem;
-    font-size: 4vw; } }
+    font-size: 4vw; }
+  .main-dev-for-list {
+    flex-flow: column wrap; }
+  .each-property {
+    width: 100%; }
+  .each-property img {
+    height: 15vh;
+    width: 50vw; } }
 
 @media screen and (min-width: 600px) and (max-width: 812px) {
   .padding-top {
@@ -338,6 +425,13 @@ body {
   .signup-form h1 {
     font-size: 2vw; }
   .signup-form form {
-    width: 29vw; } }
+    width: 29vw; }
+  #main-div-for-reviews {
+    display: flex;
+    flex-flow: column wrap; }
+  .main-dev-for-list {
+    flex-flow: column wrap; }
+  .each-property {
+    width: 100%; } }
 
 /*# sourceMappingURL=style.css.map */

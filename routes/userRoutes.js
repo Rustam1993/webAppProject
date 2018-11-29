@@ -21,7 +21,7 @@ router.get('/signup', (req,res,next) =>{
   res.render('user/signUP', {message: req.flash('error')})
 })
 
-// POST singUPahsdhsahdhsahdhs
+// POST singUP
 router.post('/signup', (req,res,next) =>{
 
 User.findOne({email : req.body.email})
