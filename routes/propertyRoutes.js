@@ -181,7 +181,7 @@ router.post('/add-new-property', uploader.single('image'),  (req,res,next) =>{
       image          : req.file.url  
   }
 
-
+  }
  
 
   newProperty.owner = req.user._id;
