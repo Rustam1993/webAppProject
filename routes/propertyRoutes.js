@@ -151,19 +151,38 @@ router.get('/add-new-property', (req,res,next) =>{
 
 // Post req for new property
 router.post('/add-new-property', uploader.single('image'),  (req,res,next) =>{
+  let newProperty;
+  if(req.file.url===undefined){
+  
+  newProperty = {
+   name           : req.body.name,
+   address        : req.body.address,
+   type           : req.body.type,
+   description    : req.body.description,
+   amenties       : req.body.amenties,
+   rating         : req.body.rating,
+   price          : req.body.price,  
+   rentLength     : req.body.rentLength,
+   avgNumOfGuests : req.body.avgNumOfGuests
+ }
 
-  const newProperty = {
-    name           : req.body.name,
-    address        : req.body.address,
-    type           : req.body.type,
-    description    : req.body.description,
-    amenties       : req.body.amenties,
-    rating         : req.body.rating,
-    price          : req.body.price,  
-    rentLength     : req.body.rentLength,
-    image          : req.file.url,
-    avgNumOfGuests : req.body.avgNumOfGuests
   }
+  else {
+    newProperty = {
+      name           : req.body.name,
+      address        : req.body.address,
+      type           : req.body.type,
+      description    : req.body.description,
+      amenties       : req.body.amenties,
+      rating         : req.body.rating,
+      price          : req.body.price,  
+      rentLength     : req.body.rentLength,
+      avgNumOfGuests : req.body.avgNumOfGuests,
+      image          : req.file.url  
+  }
+
+
+ 
 
   newProperty.owner = req.user._id;
 
