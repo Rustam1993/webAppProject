@@ -12,14 +12,14 @@
 <p>{{findedProperty.name}} property</p>
 
 
-<form action="/profile/list-my-rented-properties/{{findedProperty._id}}/add-review" method="POST">
+<form  action="/profile/list-my-rented-properties/{{findedProperty._id}}/add-review" method="POST">
 
 <label for="">Your review</label>
-<textarea name="review" id="" cols="20" rows="5" placeholder="Your review"></textarea>
+<textarea name="review" id="" cols="20" rows="5" placeholder="Describe your experience here..." ></textarea>
 
 
 <label for="">Your rating from 1 to 10</label>
-<input type="number" name="rating" id="">
+<input type="number" name="rating" id="" min="0">
 
 <button>Submit</button>
 

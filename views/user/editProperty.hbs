@@ -2,15 +2,31 @@
 
 <form action="/profile/list-my-properties/edit/{{editedProperty._id}}" method="POST" enctype="multipart/form-data">
 
+<label for="name">Name</label>
 <input type="text" name="name" id="" value="{{editedProperty.name}}">
+
+<label for="address">Address</label>
 <input type="text" name="address" id="" value="{{editedProperty.address}}">
+
+<label for="type">Type</label>
 <input type="text" name="type" value="{{editedProperty.type}}">
+
+<label for="description">Description</label>
 <input type="text" name="description" value="{{editedProperty.description}}">
+
+<label for="amenties">Amenties</label>
 <input type="text" name="amenties" value="{{editedProperty.amenties}}">
+
+<label for="price">Price</label>
 <input type="text" name="price" value="{{editedProperty.price}}">
+
+<label for="rentLength">Rent Length</label>
 <input type="text" name="rentLength" value="{{editedProperty.rentLength}}">
-<input type="file" name="image">
-<input type="text" name="avgNumOfGuests" value="{{editedProperty.avgNumOfGuests}}">
+
+<label for="rentLength">Avg number of Guests</label>
+<input type="text" name="avgNumOfGuests" value="{{editedProperty.avgNumOfGuests}}"  >
+
+<input type="file" name="image" >
 <button>Submit</button>
 </form>
 

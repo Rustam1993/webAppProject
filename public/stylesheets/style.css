@@ -268,6 +268,11 @@ body {
   width: 40vw;
   align-items: center; }
 
+.add-new-property label {
+  border: none;
+  margin: 0 !important;
+  color: white; }
+
 .add-new-property input {
   border: 1px solid white;
   width: 96%;
@@ -275,7 +280,7 @@ body {
   color: white;
   padding-left: 10px;
   border-radius: 0.15vw;
-  margin: 0.8vw; }
+  margin: 0.4vw; }
 
 .add-new-property input::placeholder {
   color: white; }
@@ -377,13 +382,17 @@ body {
   color: black;
   border: 1px solid gray; }
 
+.leave-a-review textarea::placeholder {
+  color: blue; }
+
 .leave-a-review form {
   display: flex;
   flex-flow: column wrap; }
 
 .leave-a-review form > * {
   width: 50vw;
-  margin: 1vw 0; }
+  margin: 1vw 0;
+  border: 1px solid gray; }
 
 @media screen and (max-width: 600px) {
   .topnav a:not(:last-child) {
@@ -436,7 +445,31 @@ body {
     width: 100%; }
   .each-property img {
     height: 15vh;
-    width: 50vw; } }
+    width: 50vw; }
+  .inputs input, textarea {
+    font-size: 3vw;
+    background: rgba(239, 199, 0, 0.5);
+    color: black; }
+  .inputs textarea::placeholder {
+    color: black; }
+  .new-review-form {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 4vw; }
+  .new-review-form input {
+    border: 1px solid gray; }
+  .add-new-property form {
+    margin: 3vh 0 auto 0;
+    width: 80vw; }
+  .add-new-property label {
+    border: none;
+    color: white;
+    margin: 0 !important; }
+  .edit-profile-page h2 {
+    text-align: center;
+    font-size: 6vw; }
+  .each-review button {
+    background: red; } }
 
 @media screen and (min-width: 600px) and (max-width: 812px) {
   .padding-top {
