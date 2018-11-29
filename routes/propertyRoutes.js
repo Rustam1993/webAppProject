@@ -152,7 +152,7 @@ router.get('/add-new-property', (req,res,next) =>{
 // Post req for new property
 router.post('/add-new-property', uploader.single('image'),  (req,res,next) =>{
   let newProperty;
-  if(req.file.url===undefined){
+  if(req.file===undefined){
   
   newProperty = {
    name           : req.body.name,
