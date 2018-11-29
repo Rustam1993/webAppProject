@@ -336,7 +336,9 @@ body {
 
 .single-property-view {
   margin-top: 20vh;
-  height: 45vh; }
+  height: 45vh;
+  display: flex;
+  flex-flow: row wrap; }
 
 .image-for-singles {
   margin-left: 2vw; }
@@ -363,7 +365,8 @@ body {
   min-width: 30%;
   border: 0.1vw solid #e5e5e5;
   padding: 2vw;
-  margin: 1vw; }
+  margin: 1vw;
+  max-width: 33%; }
 
 .single-review-view {
   display: flex;
