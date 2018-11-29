@@ -503,6 +503,16 @@ background-color: rgba(5, 89, 154, 0.619);
   border: 1px solid gray; 
 }
 
+.rent-submit-page{
+  margin: 5vw auto 5vw 20vw;
+  display: flex;
+  flex-flow: column wrap;
+}
+.rent-submit-page img {
+  max-height: 35vw;
+  max-width: 35vw;
+}
+
 
 // 600 px and less design
 @media screen and (max-width: 600px) {

@@ -394,6 +394,15 @@ body {
   margin: 1vw 0;
   border: 1px solid gray; }
 
+.rent-submit-page {
+  margin: 5vw auto 5vw 20vw;
+  display: flex;
+  flex-flow: column wrap; }
+
+.rent-submit-page img {
+  max-height: 35vw;
+  max-width: 35vw; }
+
 @media screen and (max-width: 600px) {
   .topnav a:not(:last-child) {
     display: none; }
@@ -418,7 +427,7 @@ body {
   .contact-info-in-profile div > h2 {
     font-size: 2vw; }
   .bio {
-    font-size: 4vw; }
+    font-size: 2vw; }
   .topnav {
     height: 5vh; }
   .main-header h1 {
