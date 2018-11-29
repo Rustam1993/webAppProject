@@ -391,6 +391,25 @@ body {
   .topnav a.icon {
     float: left;
     display: block; }
+  .topnav.responsive {
+    position: relative; }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0; }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left; }
+  .data-for-signup input {
+    font-size: 2vw; }
+  .profile-info img {
+    height: 8vh;
+    border-radius: 6vw; }
+  .contact-info-in-profile div > h2 {
+    font-size: 2vw; }
+  .bio {
+    font-size: 4vw; }
   .topnav {
     height: 5vh; }
   .main-header h1 {
