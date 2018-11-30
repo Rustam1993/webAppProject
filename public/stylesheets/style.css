@@ -491,7 +491,17 @@ body {
   .single-review-view {
     flex-flow: column wrap; }
   .each-review {
-    max-width: 90%; } }
+    max-width: 50%; }
+  .single-property-view {
+    margin-top: 8vh;
+    height: 59vh; }
+  .image-for-singles {
+    width: 95vw;
+    margin-bottom: 1vh; }
+  .image-for-singles img {
+    width: 95vw; }
+  .info-for-single-view-property {
+    font-size: 4vw; } }
 
 @media screen and (min-width: 600px) and (max-width: 813px) {
   .padding-top {
