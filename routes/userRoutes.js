@@ -18,11 +18,19 @@ const ensure    = require('connect-ensure-login')
 // Get signUp
 
 router.get('/signup', (req,res,next) =>{
-  res.render('user/signUP', {message: req.flash('error')})
+  if(req.user){
+    res.redirect('/profile')
+  }
+  else
+  {
+
+    res.render('user/signUP', {message: req.flash('error')})
+  }
 })
 
 // POST singUP
 router.post('/signup', (req,res,next) =>{
+
 
 User.findOne({email : req.body.email})
 .then((theUser)=>{

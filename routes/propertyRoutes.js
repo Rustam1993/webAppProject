@@ -164,7 +164,7 @@ router.post('/add-new-property', uploader.single('image'),  (req,res,next) =>{
    price          : req.body.price,  
    rentLength     : req.body.rentLength,
    avgNumOfGuests : req.body.avgNumOfGuests,
-   image          : "http://rawls-campbellagency.com/sites/default/files/styles/large/public/default_images/default-image.jpg"
+   image          : "https://www.bolde.in/uploads/business_images/default_business.png"
  }
 
   }

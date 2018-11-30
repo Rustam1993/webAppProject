@@ -14,7 +14,7 @@ rating:         Number,
 reviews:        {type: Schema.Types.Mixed , ref: 'Review', default: []},
 price:          Number,
 rentLength:     String,
-image:          {type : String, default: "http://rawls-campbellagency.com/sites/default/files/styles/large/public/default_images/default-image.jpg"},
+image:          {type : String, default: "https://www.bolde.in/uploads/business_images/default_business.png"},
 avgNumOfGuests: Number,
 renters:        {type: Schema.Types.Mixed, ref: 'User' , default: []},
 available:      {type: Boolean, default:true}
