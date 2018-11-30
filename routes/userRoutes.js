@@ -29,7 +29,7 @@ router.get('/signup', (req,res,next) =>{
 })
 
 // POST singUP
-router.post('/signup', (req,res,next) =>{
+// router.post('/signup', (req,res,next) =>{
 
 
 User.findOne({email : req.body.email})
