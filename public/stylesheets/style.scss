@@ -379,7 +379,7 @@ font-size: 2vw;
 }
 .each-property{
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   margin: 0.4vw 0.5vw 0.2vw 0.5vw;
   width: 30%;
   align-items: center;
@@ -387,7 +387,7 @@ font-size: 2vw;
   background-color: #000000d1;
   border-radius: 3px;
   color: white;
-  max-height: 50vh;
+  max-height: 75vh;
 }
 
 .each-property p{
@@ -586,8 +586,21 @@ color:  rgba(125,190,255,1)
   flex-flow: column wrap;
 }
 .each-property{
-  width: 100%
+  width: 100%;
+  
+    display: flex;
+    flex-flow: column wrap;
+    margin: 0.4vw 0.5vw 0.2vw 0.5vw;
+    width: 30%;
+    align-items: center;
+    border: 1px solid #e5e5e5;
+    background-color: #000000d1;
+    border-radius: 3px;
+    color: white;
+    max-height: 50vh;
 }
+
+
 .each-property img {
   height: 15vh;
   width: 50vw;
@@ -690,11 +703,5 @@ color:  rgba(125,190,255,1)
 .add-new-property form{
   margin-top: 8vh;
 }
-
-
-
-
-
-
 
 }
