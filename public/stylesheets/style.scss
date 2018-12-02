@@ -116,6 +116,9 @@ body{
   color:  #7bdaff;
   
 }
+
+
+
 // SignUp page
 
 .signup-or-login-page{
@@ -293,14 +296,14 @@ font-size: 2vw;
   border: 1px solid white;
   width: 100%;
   background: transparent;
-  color:black;
+  color:white;
   padding-left: 10px; 
   border-radius: 0.15vw;
   margin:0.8vw;
 }
 
 .inputs input::placeholder, textarea::placeholder{
-  color:black;
+  color:white;
 }
 .inputs button{
   
@@ -676,7 +679,7 @@ color:  rgba(125,190,255,1)
 }
 
 
-@media screen and (min-width: 600px) and (max-width: 813px){
+@media screen and (min-width: 600px) and (max-width: 825px){
 .padding-top{
   padding-top: 0;
 }
